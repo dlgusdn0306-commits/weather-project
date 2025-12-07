@@ -1,43 +1,132 @@
+/* 기본 리셋 */
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
-  padding: 20px;
-  background: #f5f7fb;
+  padding: 0;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search {
+/* 전체 화면: 중앙 정렬 + 배경 이미지 */
+body {
+  height: 100vh;
+  margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 가운데 카드 감싸는 컨테이너 */
+.container {
+  width: 100%;
+  padding: 16px;
+}
+
+/* 카드 박스 */
+.weather-card {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 24px 22px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+/* 제목 / 서브타이틀 */
+.weather-card h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* 검색 영역 */
+.search {
+  display: flex;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .search input {
-  width: 200px;
-  padding: 8px;
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
 }
 
 .search button {
-  padding: 8px 12px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #007aff;
+  color: #fff;
+  font-size: 14px;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 
-#result {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 16px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 16px;
-  line-height: 1.5;
+.search button:hover {
+  background: #1e88ff;
+  transform: translateY(-1px);
+}
+
+.search button:active {
+  transform: translateY(0);
+}
+
+/* 결과 영역 */
+.result {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  min-height: 80px;
+}
+
+/* 에러 메시지용 */
+.result.error {
+  color: #d32f2f;
+}
+
+/* 푸터 */
+.footer {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* 오른쪽 아래 날씨 아이콘 */
+#weather-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* 조금 넓은 화면에서 살짝 키우기 */
+@media (min-width: 768px) {
+  .weather-card h1 {
+    font-size: 26px;
+  }
+
+  .weather-card {
+    max-width: 420px;
+  }
 }

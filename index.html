@@ -7,15 +7,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
+    <div class="weather-card">
+      <h1>나만의 날씨 예보</h1>
+      <p class="subtitle">도시를 검색해서 현재 날씨를 확인해보세요.</p>
 
-  <h1>나만의 날씨 예보</h1>
+      <div class="search">
+        <input id="cityInput" placeholder="도시 이름 입력 (예: Seoul)" />
+        <button id="searchBtn">검색</button>
+      </div>
 
-  <div class="search">
-    <input id="cityInput" placeholder="도시 이름 입력" />
-    <button id="searchBtn">검색</button>
+      <div id="result" class="result">
+        <p>도시를 입력하고 검색을 눌러주세요.</p>
+      </div>
+
+      <footer class="footer">
+        Powered by OpenWeatherMap
+      </footer>
+    </div>
   </div>
 
-  <div id="result"></div>
+  <!-- 화면 오른쪽 아래 날씨 아이콘 -->
+  <div id="weather-icon"></div>
 
   <script src="script.js"></script>
 </body>
